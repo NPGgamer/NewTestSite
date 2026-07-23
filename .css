@@ -1,0 +1,56 @@
+.laser{
+    position:absolute;
+    height:4px;
+    transform-origin:left center;
+    background:linear-gradient(90deg,
+        rgba(0,255,255,1),
+        rgba(255,0,255,.8),
+        transparent);
+    box-shadow:
+        0 0 8px cyan,
+        0 0 18px cyan,
+        0 0 30px magenta;
+    pointer-events:none;
+    animation:laserFade .35s forwards;
+}
+
+@keyframes laserFade{
+    to{
+        opacity:0;
+        transform:scaleX(.2);
+    }
+}
+
+.particle{
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    pointer-events:none;
+    animation:explode .6s forwards;
+}
+
+@keyframes explode{
+    to{
+        transform:translate(var(--x),var(--y)) scale(0);
+        opacity:0;
+    }
+}
+
+.flash{
+    position:absolute;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:white;
+    filter:blur(10px);
+    pointer-events:none;
+    animation:flash .25s forwards;
+}
+
+@keyframes flash{
+    to{
+        transform:scale(4);
+        opacity:0;
+    }
+}
