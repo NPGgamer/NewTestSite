@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catch Me If You Can</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#111,#222,#333);
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+h1{
+    position:absolute;
+    top:50px;
+    color:white;
+    font-size:40px;
+}
+
+button{
+    position:absolute;
+    padding:18px 40px;
+    font-size:22px;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+    background:#ff4d6d;
+    color:white;
+    transition:0.15s;
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+</style>
+
+</head>
+<body>
+
+<h1>Try to click me 😈</h1>
+
+<button id="runBtn">Click Me</button>
+
+<script>
+
+const button = document.getElementById("runBtn");
+
+const texts = [
+" Nah",
+" Nope",
+" Not this time",
+" Missed!",
+" Too slow!",
+" Catch me!",
+" Nice try!",
+" Almost!",
+" Haha!",
+" No way!",
+" Keep trying!",
+" Try harder!",
+" Impossible!",
+" You wish!",
+" Better luck!",
+" Still no!",
+" Never!",
+" I'm fast!",
+" Wrong move!",
+" Can't catch me!"
+];
+
+// Начальная позиция
+button.style.left = (window.innerWidth/2 - 80) + "px";
+button.style.top = (window.innerHeight/2) + "px";
+
+function moveButton(){
+
+    const maxX = window.innerWidth - button.offsetWidth;
+    const maxY = window.innerHeight - button.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+
+    button.textContent = texts[Math.floor(Math.random()*texts.length)];
+}
+
+button.addEventListener("mouseenter", moveButton);
+
+button.addEventListener("click",()=>{
+    alert("😲 Impossible! You actually caught me!");
+});
+
+</script>
+
+</body>
+</html>
